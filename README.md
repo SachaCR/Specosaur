@@ -7,7 +7,7 @@ Portage for Deno of [spoeck](https://www.npmjs.com/package/spoeck) npm module
 # Create a specification :
 
 ```typescript
-import { defineSpecification } from '../index.ts';
+import { defineSpecification } from 'https://deno.land/x/specosaur/mod.ts';
 
 type Denosaur = {
   color: string;
