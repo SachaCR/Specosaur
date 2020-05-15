@@ -1,26 +1,26 @@
-import { assertEquals, assert } from 'https://deno.land/std/testing/asserts.ts';
+import { assertEquals, assert } from "https://deno.land/std/testing/asserts.ts";
 
-import { defineSpecification } from '../defineSpecification.ts';
+import { defineSpecification } from "../defineSpecification.ts";
 
 type Denosaur = {
   color: string;
-  dietPlan: 'carnivore' | 'vegetarian' | 'omnivorous';
+  dietPlan: "carnivore" | "vegetarian" | "omnivorous";
   weigth: number;
   size: number;
 };
 
 const denosaurIsBlue = defineSpecification({
-  name: 'denosaurIsBlue',
-  desc: 'Denosaur is blue',
-  isSatisfiedBy: (denosaur: Denosaur) => denosaur.color === 'blue',
+  name: "denosaurIsBlue",
+  desc: "Denosaur is blue",
+  isSatisfiedBy: (denosaur: Denosaur) => denosaur.color === "blue",
 });
 
 Deno.test(
-  'Given specifications: denosaurIsBlue calling isSatifiedBy() on a blue denosaur should return true with details',
+  "Given specifications: denosaurIsBlue calling isSatifiedBy() on a blue denosaur should return true with details",
   () => {
     const denosaur: Denosaur = {
-      color: 'blue',
-      dietPlan: 'carnivore',
+      color: "blue",
+      dietPlan: "carnivore",
       weigth: 1000,
       size: 10,
     };
@@ -28,22 +28,22 @@ Deno.test(
     const result = denosaurIsBlue.isSatisfiedBy(denosaur);
 
     assertEquals(result, {
-      name: 'denosaurIsBlue',
-      desc: 'Denosaur is blue',
+      name: "denosaurIsBlue",
+      desc: "Denosaur is blue",
       value: true,
       details: [
-        { name: 'denosaurIsBlue', value: true, desc: 'Denosaur is blue' },
+        { name: "denosaurIsBlue", value: true, desc: "Denosaur is blue" },
       ],
     });
   },
 );
 
 Deno.test(
-  'Given specifications: denosaurIsBlue calling isSatifiedBy() on a green denosaur should return true with details',
+  "Given specifications: denosaurIsBlue calling isSatifiedBy() on a green denosaur should return true with details",
   () => {
     const denosaur: Denosaur = {
-      color: 'green',
-      dietPlan: 'carnivore',
+      color: "green",
+      dietPlan: "carnivore",
       weigth: 1000,
       size: 10,
     };
@@ -51,11 +51,11 @@ Deno.test(
     const result = denosaurIsBlue.isSatisfiedBy(denosaur);
 
     assertEquals(result, {
-      name: 'denosaurIsBlue',
-      desc: 'Denosaur is blue',
+      name: "denosaurIsBlue",
+      desc: "Denosaur is blue",
       value: false,
       details: [
-        { name: 'denosaurIsBlue', value: false, desc: 'Denosaur is blue' },
+        { name: "denosaurIsBlue", value: false, desc: "Denosaur is blue" },
       ],
     });
   },

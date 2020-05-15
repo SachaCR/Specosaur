@@ -1,1 +1,1 @@
-export { defineSpecification } from './src/defineSpecification.ts';
+export { defineSpecification } from "./src/defineSpecification.ts";

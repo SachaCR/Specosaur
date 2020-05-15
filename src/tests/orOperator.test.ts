@@ -1,38 +1,38 @@
-import { assertEquals, assert } from 'https://deno.land/std/testing/asserts.ts';
+import { assertEquals, assert } from "https://deno.land/std/testing/asserts.ts";
 
-import { defineSpecification } from '../defineSpecification.ts';
+import { defineSpecification } from "../defineSpecification.ts";
 
 type Denosaur = {
   color: string;
-  dietPlan: 'carnivore' | 'vegetarian' | 'omnivorous';
+  dietPlan: "carnivore" | "vegetarian" | "omnivorous";
   weigth: number;
   size: number;
 };
 
 const denosaurIsBlue = defineSpecification({
-  name: 'denosaurIsBlue',
-  desc: 'Denosaur is blue',
-  isSatisfiedBy: (denosaur: Denosaur) => denosaur.color === 'blue',
+  name: "denosaurIsBlue",
+  desc: "Denosaur is blue",
+  isSatisfiedBy: (denosaur: Denosaur) => denosaur.color === "blue",
 });
 
 const denosaurIsCarnivore = defineSpecification({
-  name: 'denosaurIsCarnivore',
-  desc: 'Denosaur is carnivore',
-  isSatisfiedBy: (denosaur: Denosaur) => denosaur.dietPlan === 'carnivore',
+  name: "denosaurIsCarnivore",
+  desc: "Denosaur is carnivore",
+  isSatisfiedBy: (denosaur: Denosaur) => denosaur.dietPlan === "carnivore",
 });
 
 Deno.test(
-  'Given specifications: isBlue and isCarnivore, Using OR operator, should return a new specification denosaur is blue OR carnivore',
+  "Given specifications: isBlue and isCarnivore, Using OR operator, should return a new specification denosaur is blue OR carnivore",
   () => {
     const denosaurIsBlueORCarnivore = denosaurIsBlue.or(
       denosaurIsCarnivore,
-      'denosaurIsBlueORCarnivore',
+      "denosaurIsBlueORCarnivore",
     );
 
-    assertEquals(denosaurIsBlueORCarnivore.name, 'denosaurIsBlueORCarnivore');
+    assertEquals(denosaurIsBlueORCarnivore.name, "denosaurIsBlueORCarnivore");
     assertEquals(
       denosaurIsBlueORCarnivore.desc,
-      'Denosaur is blue OR (Denosaur is carnivore)',
+      "Denosaur is blue OR (Denosaur is carnivore)",
     );
     assert(denosaurIsBlueORCarnivore.and);
     assert(denosaurIsBlueORCarnivore.or);
@@ -43,32 +43,32 @@ Deno.test(
 );
 
 Deno.test(
-  'calling denosaurIsBlueORCarnivore.isSatifiedBy() on a blue carnivore denosaur should return true wtih details',
+  "calling denosaurIsBlueORCarnivore.isSatifiedBy() on a blue carnivore denosaur should return true wtih details",
   () => {
     const denosaur: Denosaur = {
-      color: 'blue',
-      dietPlan: 'carnivore',
+      color: "blue",
+      dietPlan: "carnivore",
       weigth: 1000,
       size: 10,
     };
 
     const denosaurIsBlueORCarnivore = denosaurIsBlue.or(
       denosaurIsCarnivore,
-      'denosaurIsBlueORCarnivore',
+      "denosaurIsBlueORCarnivore",
     );
 
     const result = denosaurIsBlueORCarnivore.isSatisfiedBy(denosaur);
 
     assertEquals(result, {
-      name: 'denosaurIsBlueORCarnivore',
-      desc: 'Denosaur is blue OR (Denosaur is carnivore)',
+      name: "denosaurIsBlueORCarnivore",
+      desc: "Denosaur is blue OR (Denosaur is carnivore)",
       value: true,
       details: [
-        { name: 'denosaurIsBlue', value: true, desc: 'Denosaur is blue' },
+        { name: "denosaurIsBlue", value: true, desc: "Denosaur is blue" },
         {
-          name: 'denosaurIsCarnivore',
+          name: "denosaurIsCarnivore",
           value: true,
-          desc: 'Denosaur is carnivore',
+          desc: "Denosaur is carnivore",
         },
       ],
     });
@@ -76,32 +76,32 @@ Deno.test(
 );
 
 Deno.test(
-  'calling denosaurIsBlueORCarnivore.isSatifiedBy() on a green carnivore denosaur should return true wtih details',
+  "calling denosaurIsBlueORCarnivore.isSatifiedBy() on a green carnivore denosaur should return true wtih details",
   () => {
     const denosaur: Denosaur = {
-      color: 'green',
-      dietPlan: 'carnivore',
+      color: "green",
+      dietPlan: "carnivore",
       weigth: 1000,
       size: 10,
     };
 
     const denosaurIsBlueORCarnivore = denosaurIsBlue.or(
       denosaurIsCarnivore,
-      'denosaurIsBlueORCarnivore',
+      "denosaurIsBlueORCarnivore",
     );
 
     const result = denosaurIsBlueORCarnivore.isSatisfiedBy(denosaur);
 
     assertEquals(result, {
-      name: 'denosaurIsBlueORCarnivore',
-      desc: 'Denosaur is blue OR (Denosaur is carnivore)',
+      name: "denosaurIsBlueORCarnivore",
+      desc: "Denosaur is blue OR (Denosaur is carnivore)",
       value: true,
       details: [
-        { name: 'denosaurIsBlue', value: false, desc: 'Denosaur is blue' },
+        { name: "denosaurIsBlue", value: false, desc: "Denosaur is blue" },
         {
-          name: 'denosaurIsCarnivore',
+          name: "denosaurIsCarnivore",
           value: true,
-          desc: 'Denosaur is carnivore',
+          desc: "Denosaur is carnivore",
         },
       ],
     });
@@ -109,32 +109,32 @@ Deno.test(
 );
 
 Deno.test(
-  'calling denosaurIsBlueORCarnivore.isSatifiedBy() on a green vegetarian denosaur should return false wtih details',
+  "calling denosaurIsBlueORCarnivore.isSatifiedBy() on a green vegetarian denosaur should return false wtih details",
   () => {
     const denosaur: Denosaur = {
-      color: 'green',
-      dietPlan: 'vegetarian',
+      color: "green",
+      dietPlan: "vegetarian",
       weigth: 1000,
       size: 10,
     };
 
     const denosaurIsBlueORCarnivore = denosaurIsBlue.or(
       denosaurIsCarnivore,
-      'denosaurIsBlueORCarnivore',
+      "denosaurIsBlueORCarnivore",
     );
 
     const result = denosaurIsBlueORCarnivore.isSatisfiedBy(denosaur);
 
     assertEquals(result, {
-      name: 'denosaurIsBlueORCarnivore',
-      desc: 'Denosaur is blue OR (Denosaur is carnivore)',
+      name: "denosaurIsBlueORCarnivore",
+      desc: "Denosaur is blue OR (Denosaur is carnivore)",
       value: false,
       details: [
-        { name: 'denosaurIsBlue', value: false, desc: 'Denosaur is blue' },
+        { name: "denosaurIsBlue", value: false, desc: "Denosaur is blue" },
         {
-          name: 'denosaurIsCarnivore',
+          name: "denosaurIsCarnivore",
           value: false,
-          desc: 'Denosaur is carnivore',
+          desc: "Denosaur is carnivore",
         },
       ],
     });

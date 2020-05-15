@@ -1,34 +1,34 @@
-import { defineSpecification } from '../index.ts';
+import { defineSpecification } from "../index.ts";
 
 type Denosaur = {
   color: string;
-  dietPlan: 'carnivore' | 'vegetarian' | 'omnivorous';
+  dietPlan: "carnivore" | "vegetarian" | "omnivorous";
   weigth: number;
   size: number;
 };
 
 const denosaurIsCarnivore = defineSpecification({
-  name: 'denosaurIsCarnivore',
-  desc: 'Denosaur is carnivore',
-  isSatisfiedBy: (denosaur: Denosaur) => denosaur.dietPlan === 'carnivore',
+  name: "denosaurIsCarnivore",
+  desc: "Denosaur is carnivore",
+  isSatisfiedBy: (denosaur: Denosaur) => denosaur.dietPlan === "carnivore",
 });
 
 const denosaurIsBlue = defineSpecification({
-  name: 'denosaurIsBlue',
-  desc: 'Denosaur is blue',
-  isSatisfiedBy: (denosaur: Denosaur) => denosaur.color === 'blue',
+  name: "denosaurIsBlue",
+  desc: "Denosaur is blue",
+  isSatisfiedBy: (denosaur: Denosaur) => denosaur.color === "blue",
 });
 
 const denosaur: Denosaur = {
-  color: 'blue',
-  dietPlan: 'carnivore',
+  color: "blue",
+  dietPlan: "carnivore",
   weigth: 1000,
   size: 10,
 };
 
 const isBlueAndCarnivore = denosaurIsBlue.and(
   denosaurIsCarnivore,
-  'isBlueAndCarnivore',
+  "isBlueAndCarnivore",
 );
 
 const result = isBlueAndCarnivore.isSatisfiedBy(denosaur);
