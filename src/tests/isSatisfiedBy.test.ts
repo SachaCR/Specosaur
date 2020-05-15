@@ -1,6 +1,6 @@
 import { assertEquals, assert } from "https://deno.land/std/testing/asserts.ts";
 
-import { defineSpecification } from "../defineSpecification.ts";
+import { defineSpecification } from "../../mod.ts";
 
 type Denosaur = {
   color: string;
