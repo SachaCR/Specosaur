@@ -1,4 +1,4 @@
-import { defineSpecification } from "../index.ts";
+import { defineSpecification } from "../mod.ts";
 
 type Denosaur = {
   color: string;
