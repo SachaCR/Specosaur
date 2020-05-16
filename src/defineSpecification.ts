@@ -1,6 +1,6 @@
 import { buildSpec, Specification, SpecificationResult } from "./buildSpec.ts";
 
-export { Specification } from "./buildSpec.ts";
+export { Specification, SpecificationResult };
 
 export interface SpecificationDefinition<T> {
   desc: string;
