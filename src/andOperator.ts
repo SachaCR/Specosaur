@@ -2,7 +2,7 @@ import {
   SpecificationData,
   Specification,
   SpecificationResult,
-} from "./buildSpec.ts";
+} from './types.ts';
 
 export function andOperator<T>(
   parentSpec: Specification<T>,

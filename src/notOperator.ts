@@ -2,7 +2,7 @@ import {
   Specification,
   SpecificationData,
   SpecificationResult,
-} from "./buildSpec.ts";
+} from './types.ts';
 
 export function notOperator<T>(
   parentSpec: Specification<T>,

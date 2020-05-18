@@ -1,12 +1,10 @@
-import { buildSpec, Specification, SpecificationResult } from "./buildSpec.ts";
+import { buildSpec } from './buildSpec.ts';
 
-export { Specification, SpecificationResult };
-
-export interface SpecificationDefinition<T> {
-  desc: string;
-  name: string;
-  isSatisfiedBy: (entity: T) => boolean;
-}
+import {
+  SpecificationResult,
+  SpecificationDefinition,
+  Specification,
+} from './types.ts';
 
 export function defineSpecification<T>(
   definition: SpecificationDefinition<T>,

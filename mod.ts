@@ -1,6 +1,3 @@
-export {
-  defineSpecification,
-  SpecificationDefinition,
-  Specification,
-  SpecificationResult,
-} from "./src/defineSpecification.ts";
+export { defineSpecification } from './src/defineSpecification.ts';
+
+export * from './src/types.ts';
