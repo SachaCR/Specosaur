@@ -1,7 +1,12 @@
 # Specosaur
 
-Specification pattern library for Deno.
+Specification pattern library for Deno inspired by Eric Evans's book about DDD.
+
 Portage for Deno of [spoeck](https://www.npmjs.com/package/spoeck) npm module
+
+Here is an [article](https://martinfowler.com/apsupp/spec.pdf) from Martin Fowler website about this pattern;
+
+## Types documenation :
 
 [Typescript documentation here](https://doc.deno.land/https/deno.land/x/specosaur/mod.ts#Specification)
 
