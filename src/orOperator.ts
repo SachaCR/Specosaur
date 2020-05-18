@@ -2,7 +2,7 @@ import {
   SpecificationData,
   Specification,
   SpecificationResult,
-} from './types.ts';
+} from "./types.ts";
 
 export function orOperator<T>(
   parentSpecData: Specification<T>,

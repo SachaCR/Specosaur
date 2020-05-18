@@ -2,7 +2,7 @@ import {
   SpecificationData,
   Specification,
   SpecificationResult,
-} from './types.ts';
+} from "./types.ts";
 
 export function xorOperator<T>(
   parentSpecData: Specification<T>,
@@ -24,8 +24,7 @@ export function xorOperator<T>(
     return {
       name,
       desc,
-      value:
-        (parentResult.value && !childResult.value) ||
+      value: (parentResult.value && !childResult.value) ||
         (!parentResult.value && childResult.value),
       details: details.concat(parentResult.details).concat(childResult.details),
     };

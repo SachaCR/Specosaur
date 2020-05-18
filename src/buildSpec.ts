@@ -1,13 +1,13 @@
-import { andOperator } from './andOperator.ts';
-import { orOperator } from './orOperator.ts';
-import { xorOperator } from './xorOperator.ts';
-import { notOperator } from './notOperator.ts';
+import { andOperator } from "./andOperator.ts";
+import { orOperator } from "./orOperator.ts";
+import { xorOperator } from "./xorOperator.ts";
+import { notOperator } from "./notOperator.ts";
 
 import {
   SpecificationResult,
   Specification,
   SpecificationData,
-} from './types.ts';
+} from "./types.ts";
 
 export function buildSpec<T>(specData: SpecificationData<T>): Specification<T> {
   const specification: Specification<T> = {

@@ -1,10 +1,10 @@
-import { buildSpec } from './buildSpec.ts';
+import { buildSpec } from "./buildSpec.ts";
 
 import {
   SpecificationResult,
   SpecificationDefinition,
   Specification,
-} from './types.ts';
+} from "./types.ts";
 
 export function defineSpecification<T>(
   definition: SpecificationDefinition<T>,
