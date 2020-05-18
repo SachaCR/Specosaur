@@ -1,10 +1,11 @@
 # Specosaur
 
 Specification pattern library for Deno.
-
 Portage for Deno of [spoeck](https://www.npmjs.com/package/spoeck) npm module
 
-# Create a specification :
+[Typescript documentation here](https://doc.deno.land/https/deno.land/x/specosaur/mod.ts#Specification)
+
+## Create a specification :
 
 ```typescript
 import { defineSpecification } from 'https://deno.land/x/specosaur/mod.ts';
@@ -34,7 +35,7 @@ const result = denosaurIsBlue.isSatisfiedBy(denosaur);
 console.log(result.value); // => false
 ```
 
-# Result format :
+## Result format :
 
 The specification `isSatisifiedBy` function will always return an object with these properties.
 
@@ -69,9 +70,9 @@ const compositeRuleResult = {
 };
 ```
 
-# Combining specifications with operator :
+## Combining specifications with operator :
 
-## AND operator:
+### AND operator:
 
 ```typescript
 const isBlueAndCarnivore = denosaurIsBlue.and(
@@ -80,7 +81,7 @@ const isBlueAndCarnivore = denosaurIsBlue.and(
 );
 ```
 
-## OR operator :
+### OR operator :
 
 ```typescript
 const isBlueOrCarnivore = denosaurIsBlue.or(
@@ -89,7 +90,7 @@ const isBlueOrCarnivore = denosaurIsBlue.or(
 );
 ```
 
-## XOR operator :
+### XOR operator :
 
 ```typescript
 const isBlueXorCarnivore = denosaurIsBlue.xor(
@@ -98,7 +99,7 @@ const isBlueXorCarnivore = denosaurIsBlue.xor(
 );
 ```
 
-## NOT operator :
+### NOT operator :
 
 ```typescript
 const isBlueAndNotCarnivore = denosaurIsBlue.and(
